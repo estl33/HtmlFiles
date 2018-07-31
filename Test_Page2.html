@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<title>My Example</title>
+<style>
+body { 
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "nav article ads"
+    "footer footer footer";
+  grid-template-rows: 60px 1fr 60px;
+  grid-template-columns: 20% 1fr 15%;
+  grid-gap: 10px;
+  height: 100vh;
+  margin: 0;
+  }
+/* Stack the layout on small devices/viewports. */
+@media all and (max-width: 575px) {
+  body { 
+    grid-template-areas: 
+      "header"
+      "article"
+      "ads"
+      "nav"
+      "footer";
+    grid-template-rows: 80px 1fr 70px 1fr 70px;  
+    grid-template-columns: 1fr;
+ }
+}
+#pageHeader {
+  grid-area: header;
+}
+#pageFooter {
+  grid-area: footer;
+}
+#mainArticle { 
+  grid-area: article;      
+  }
+#mainNav { 
+  grid-area: nav; 
+  }
+#siteAds { 
+  grid-area: ads; 
+  }
+header, footer, article, nav, div {
+  padding: 20px;
+  background: #f5fcfc;
+}
+</style>
+<body style="font-family:monospace">
+  <header id="pageHeader">Test Page 2</header>
+  <article id="mainArticle" >Article
+  <center>
+  <img src="https://data.whicdn.com/images/187654805/original.gif" width="500" height="300"></img>
+  <img src="https://78.media.tumblr.com/bbfdcae95bc9ca8f4924c27c66a0f282/tumblr_oct9niXCwr1qg67clo1_500.gif" width="500" height="300"></img>
+  <img src="https://data.whicdn.com/images/234439376/original.gif" width="500" height="300"></img>
+  <img src="https://data.whicdn.com/images/259710416/original.gif" width="500" height="300"></img>
+
+  <p id="demo"></p>
+  <button id="httpGetJson" onclick=httpGetAsync('https://api.weatherbit.io/v2.0/forecast/current?city=Vancouver,BC&key={f925cf170e9c4bd4ad0621dac41d160a}',)>httpGet</button>  
+  <p id="httpGetResult">httpGetResult</p>
+    
+  <script>
+  var callbackFunction = function(data) {
+    var wind = data.query.results.channel.wind;
+	alert(wind.chill);
+  };
+  </script>
+
+  <input list="browsers">
+
+  <datalist id="browsers">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+  </datalist>
+
+
+  <script>
+  function httpGetAsync(theUrl, callback)
+  {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+			document.getElementById("httpGetResult").innerHTML = xmlHttp.responseText;
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
+  }
+  var text = '{ "employees" : [' +
+  '{ "firstName":"John" , "lastName":"Doe" },' +
+  '{ "firstName":"Anna" , "lastName":"Smith" },' +
+  '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+  var obj = JSON.parse(text);
+  document.getElementById("demo").innerHTML =
+  obj.employees[1].firstName + " " + obj.employees[1].lastName;
+  </script>
+  </center>
+  <p align="center">
+  	<a href="https://www.google.com"><img src="https://i.imgur.com/kDUw4CW.jpg" width="30" height="30" style="margin-top: 50px; margin-right: 10px;"></a>
+   	<a href="https://www.google.com"><img src="https://i.imgur.com/XIE6ZRN.jpg" width="30" height="30" style="margin-top: 50px; margin-right: 10px;"></a>
+  	<a href="https://www.google.com"><img src="https://i.imgur.com/dgJppEY.jpg" width="30" height="30" style="margin-top: 50px; margin-right: 10px;"></a>
+  	<a href="https://www.google.com"><img src="https://i.imgur.com/Z6sOH7v.jpg" width="30" height="30" style="margin-top: 50px; margin-right: 10px;"></a>
+  	<a href="https://www.google.com"><img src="https://i.imgur.com/LhPs0OQ.jpg" width="30" height="30" style="margin-top: 50px; margin-right: 10px;"></a>
+  </p>
+  </article>
+  <nav id="mainNav">Nav</nav>
+  <div id="siteAds">Ads</div>
+  <footer id="pageFooter">Footer</footer>
+</body>
