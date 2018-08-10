@@ -2,18 +2,29 @@
 <style>
 .container {
     overflow: hidden;
+	width: 1000px;
 }
 
 .img {
 	z-index: 7;
 }
 
+.btnContainer {
+	top: 500;
+	right: 0;
+	width: 100px;
+	align: right;
+	position: absolute;
+}
+
 .filterDiv {
     float: left;
     background-color: #ffffff;
     color: #000000;
+	font-family: "Helvetica";
+	font-size: 10px;
     width: 200px;
-	height: 210px;
+	height: 230px;
     line-height: 10px;
     text-align: center;
     margin: 2px;
@@ -30,8 +41,11 @@
   border: none;
   outline: none;
   padding: 12px 16px;
-  background-color: #f1f1f1;
+  background-color: #000000;
+  color: white;
   cursor: pointer;
+  width: 100px;
+  margin: 2px;
 }
 
 /* Add a light grey background on mouse-over */
@@ -48,29 +62,32 @@
 <body>
 <h1 style="font-family:monospace"> Cat Market Selection of Fresh</h1>
 <!-- Control buttons -->
-<div id="myBtnContainer">
+<div id="myBtnContainer" class="btnContainer">
   <button class="btn active" onclick="filterSelection('all')"> Show all</button>
   <button class="btn" onclick="filterSelection('cars')"> Cars</button>
-  <button class="btn" onclick="filterSelection('animals')"> Animals</button>
+  <button class="btn" onclick="filterSelection('beverage')"> Beverage</button>
   <button class="btn" onclick="filterSelection('fruits')"> Fruits</button>
-  <button class="btn" onclick="filterSelection('colors')"> Colors</button>
+  <button class="btn" onclick="filterSelection('snacks')"> Snacks</button>
 </div>
 
 <!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
 <div class="container">
-  <div class="filterDiv cars">BMW<img class="img" src="https://media.giphy.com/media/3Miacz0GXy5vficqQN/giphy.gif" title="Ball" width="200" height="200"></div>
-  <div class="filterDiv colors fruits">Orange<img class="img" src="https://media.giphy.com/media/1wXgAN9uASeP8I0OeY/giphy.gif" title="Ball" width="200" height="200"></div>
+  <div class="filterDiv cars">BMW</div>
+  <div class="filterDiv snacks fruits">Orange<img class="img" src="https://media.giphy.com/media/1wXgAN9uASeP8I0OeY/giphy.gif" title="Ball" width="200" height="200"></div>
   <div class="filterDiv cars">Volvo</div>
-  <div class="filterDiv colors">Red</div>
-  <div class="filterDiv cars animals">Mustang</div>
-  <div class="filterDiv colors">Blue</div>
-  <div class="filterDiv animals">Cat</div>
-  <div class="filterDiv animals">Dog</div>
+  <div class="filterDiv snacks">Red</div>
+  <div class="filterDiv cars beverage">Mustang</div>
+  <div class="filterDiv snacks">Blue</div>
+  <div class="filterDiv beverage">Coffee</div>
+  <div class="filterDiv beverage">Iced Tea</div>
   <div class="filterDiv fruits">Melon<img class="img" src="https://media.giphy.com/media/553wlTH8ifxJgV89G2/giphy.gif" title="Ball" width="200" height="200"></div>
-  <div class="filterDiv fruits animals">Kiwi</div>
-  <div class="filterDiv fruits">Banana</div>
-  <div class="filterDiv fruits">Lemon</div>
-  <div class="filterDiv animals">Cow</div>
+  <div class="filterDiv fruits">Peach<img class="img" src="https://i.imgur.com/WxAWBsN.jpg" title="Ball" width="200" height="200"></div>
+  <div class="filterDiv fruits">Strawberry<img class="img" src="https://i.imgur.com/ZS6xEWU.jpg" title="Ball" width="200" height="200"></div>
+  <div class="filterDiv fruits">Lemon<img class="img" src="https://i.imgur.com/1lpJXm7.jpg" title="Ball" width="200" height="200"></div>
+  <div class="filterDiv fruits">Mango<img class="img" src="https://i.imgur.com/ji95X9Z.jpg" title="Ball" width="200" height="200"></div>
+  <div class="filterDiv fruits">Persimmon<img class="img" src="https://i.imgur.com/pVemfqm.jpg" title="Ball" width="200" height="200"></div>
+  <div class="filterDiv fruits">Watermelon<img class="img" src="https://i.imgur.com/4kx66N7.jpg" title="Ball" width="200" height="200"></div>
+  <div class="filterDiv beverage">Milk</div>
 </div>
 <script>
 
